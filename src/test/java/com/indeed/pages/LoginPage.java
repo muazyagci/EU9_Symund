@@ -23,4 +23,29 @@ public class LoginPage {
     @FindBy (xpath = "//p[@class='warning wrongPasswordMsg']")
     public WebElement wrongPasswordMSG;
 
+    @FindBy (xpath = "//input[@type='password']")
+    public WebElement passwordAsDots;
+
+    @FindBy (xpath = "//input[@type='text']")
+    public WebElement passwordAsText;
+
+    @FindBy (xpath = "//a[@class='toggle-password']")
+    public WebElement eyeBtn;
+
+    @FindBy (linkText = "Forgot password?")
+    public WebElement forgotPasswordLink;
+
+    @FindBy (id ="reset-password-submit")
+    public WebElement resetPasswordBtn;
+
+    @FindBy (linkText = "Back to login")
+    public WebElement backToLoginBtn;
+
+    @FindBy (xpath = "//input[@placeholder='Username or email']")
+    public WebElement emailPlaceHolder;
+
+    @FindBy (xpath = "//input[@placeholder='Password']")
+    public WebElement passwordPlaceHolder;
+
+
 }

@@ -12,7 +12,7 @@ public class Hooks {
 
     @Before (order = 1)//Before method coming from cucumber-java.Not from junit
     public void setupScenario(){
-        System.out.println("===Setting up browser using cucumber @Before");
+
     }
 
     @Before(value = "@login",order = 2)//Before method coming from cucumber-java.Not from junit
@@ -38,7 +38,8 @@ if (scenario.isFailed()) {
     scenario.attach(screenshot, "image/png", scenario.getName());
 }
 
-        //Driver.closeDriver();
+        Driver.closeDriver();
+
        System.out.println("Driver closed");
     }
 
@@ -46,12 +47,12 @@ if (scenario.isFailed()) {
 
         @BeforeStep
     public void setupStep(){
-        System.out.println("------>applying setup using @BeforeStep");
+
     }
 
     @AfterStep
     public void afterStep(){
-        System.out.println("------>applying tearDown using @AfterStep");
+
     }
 
 }
