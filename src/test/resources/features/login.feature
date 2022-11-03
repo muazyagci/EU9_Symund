@@ -8,7 +8,8 @@ Feature: US-001 Login Functionality [AutomationS3-MMY]
   Scenario: login with valid credentials
     When user clicks to email input box and enter email "Employee81"
     And user clicks to password input box and enter password "Employee123"
-    Then Click Login button or hit enter key
+    And Click Login button
+    Then verify that user is on dashboard
 
   @SYMU-1607
   Scenario: login negative test

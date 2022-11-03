@@ -1,6 +1,6 @@
-package com.indeed.pages;
+package com.Symund.pages;
 
-import com.indeed.utilities.Driver;
+import com.Symund.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,13 +18,11 @@ public class LoginPage {
     public WebElement passwordInputBox;
 
     @FindBy (id = "submit-form")
-    public WebElement enterKey;
+    public WebElement loginBtn;
 
     @FindBy (xpath = "//p[@class='warning wrongPasswordMsg']")
     public WebElement wrongPasswordMSG;
 
-    @FindBy (xpath = "//input[@type='password']")
-    public WebElement passwordAsDots;
 
     @FindBy (xpath = "//input[@type='text']")
     public WebElement passwordAsText;
@@ -46,6 +44,10 @@ public class LoginPage {
 
     @FindBy (xpath = "//input[@placeholder='Password']")
     public WebElement passwordPlaceHolder;
+
+
+
+
 
 
 }

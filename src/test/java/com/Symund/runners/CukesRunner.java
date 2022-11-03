@@ -1,4 +1,4 @@
-package com.indeed.runners;
+package com.Symund.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
 //                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         } ,
         features = "src/test/resources/features",
-        glue = "com/indeed/step_definitions",
-        tags = "@SYMU-1607",
+        glue = "com/Symund/step_definitions",
+        tags = "",
         dryRun = false
 
 

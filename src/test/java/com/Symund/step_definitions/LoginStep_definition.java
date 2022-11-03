@@ -1,18 +1,18 @@
-package com.indeed.step_definitions;
+package com.Symund.step_definitions;
 
-import com.indeed.pages.LoginPage;
-import com.indeed.utilities.Driver;
+import com.Symund.pages.LoginPage;
+import com.Symund.utilities.ConfigurationReader;
+import com.Symund.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 
 public class LoginStep_definition {
     LoginPage loginPage=new LoginPage();
     @When("user is on login page")
     public void user_is_on_login_page() {
 
-        Driver.getDriver().get("https://qa.symund.com/");
+        Driver.getDriver().get(ConfigurationReader.getProperty("web.url"));
 
 
     }
@@ -30,10 +30,9 @@ public class LoginStep_definition {
     }
     @Then("Click Login button or hit enter key")
     public void click_login_button_or_hit_enter_key() {
-       loginPage.enterKey.click();
-        if(!(loginPage.wrongPasswordMSG.isDisplayed())){
-            throw new RuntimeException("Wrong password");
-        }
+       loginPage.loginBtn.click();
+       Assert.assertTrue(loginPage.wrongPasswordMSG.isDisplayed());
+
 
     }
     @When("Invalid username should be entered {string}")
@@ -51,11 +50,13 @@ public class LoginStep_definition {
 
     @When("Click Login button or hit enter key again without passing any username or password")
     public void click_login_button_or_hit_enter_key_again_without_passing_any_username_or_password() {
-         loginPage.enterKey.click();
+         loginPage.loginBtn.click();
 
 
-        Assert.assertTrue(loginPage.passwordInputBox.getAttribute("validationMessage").contains("Please fill"));
-         
+        String validationMessage = loginPage.passwordInputBox.getAttribute("validationMessage");
+        Assert.assertEquals(validationMessage,"Please fill in this field.");
+
+
     }
     @When("user enters email {string} and password {string}")
     public void user_enters_email_and_password(String email, String password) {
@@ -66,11 +67,7 @@ public class LoginStep_definition {
     }
     @Then("password must be seen as dots")
     public void password_must_be_seen_as_dots() {
-       if (loginPage.passwordAsDots.isDisplayed()){
-
-       }else {
-           throw new RuntimeException();
-       }
+       Assert.assertEquals("password",loginPage.passwordInputBox.getAttribute("type"));
     }
 
 
@@ -82,51 +79,52 @@ public class LoginStep_definition {
 
     @When("user click to forgot password? link")
     public void user_click_to_forgot_password_link() {
+
 loginPage.forgotPasswordLink.click();
 
-if (!(loginPage.backToLoginBtn.isDisplayed())){
-    throw new RuntimeException();
-}
+Assert.assertTrue(loginPage.backToLoginBtn.isDisplayed());
+
        
     }
 
 
     @When("user must see valid place holders on Username")
     public void user_must_see_valid_place_holders_on_username() {
-       if (!(loginPage.emailPlaceHolder.isDisplayed())){
-           throw new RuntimeException();
-       }
-       loginPage.enterKey.click();
-       if (Driver.getDriver().findElement(By.xpath("//*[.='Please fill out this field.']")).isDisplayed()){
-           System.out.println("true");
-       }else {
-           System.out.println("false");
-       }
+        Assert.assertTrue(loginPage.emailPlaceHolder.isDisplayed());
+
+
+
+
+
     }
     @Then("user must see valid place holders on Password")
     public void user_must_see_valid_place_holders_on_password() {
-        if (!(loginPage.passwordPlaceHolder.isDisplayed())){
-            throw new RuntimeException();
-        }
+        Assert.assertTrue(loginPage.passwordPlaceHolder.isDisplayed());
+
 
     }
 
     @Then("user should see the password explicitly")
     public void userShouldSeeThePasswordExplicitly() {
-        if (loginPage.passwordAsText.isDisplayed()){
+        Assert.assertTrue(loginPage.passwordAsText.isDisplayed());
 
-        }else {
-            throw new RuntimeException();
-        }
 
     }
 
     @Then("user must see Reset password button")
     public void userMustSeeResetPasswordButton() {
-        if(loginPage.resetPasswordBtn.isDisplayed()){
+        Assert.assertTrue(loginPage.resetPasswordBtn.isDisplayed());
 
-        }else {
-            throw new RuntimeException();
-        }
+    }
+
+    @Then("Click Login button")
+    public void clickLoginButton() {
+        loginPage.loginBtn.click();
+    }
+
+    @Then("verify that user is on dashboard")
+    public void verifyThatUserIsOnDashboard() {
+        Assert.assertTrue(new DashboardPage().dashboardBtn.isDisplayed());
+
     }
 }

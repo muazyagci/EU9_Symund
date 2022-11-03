@@ -1,6 +1,6 @@
-package com.indeed.step_definitions;
+package com.Symund.step_definitions;
 
-import com.indeed.utilities.Driver;
+import com.Symund.utilities.Driver;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
