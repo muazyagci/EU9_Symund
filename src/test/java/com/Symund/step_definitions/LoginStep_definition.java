@@ -1,5 +1,6 @@
 package com.Symund.step_definitions;
 
+import com.Symund.pages.DashboardPage;
 import com.Symund.pages.LoginPage;
 import com.Symund.utilities.ConfigurationReader;
 import com.Symund.utilities.Driver;

@@ -1,6 +1,7 @@
 @SYMU-1645
 Feature: US-001 Login Functionality [AutomationS3-MMY]
 
+  @SYMU-1640
   Background:
     Given user is on login page
 
@@ -29,7 +30,7 @@ Feature: US-001 Login Functionality [AutomationS3-MMY]
     And click to the eye button
     Then user should see the password explicitly
 
-@SYMU-1643
+  @SYMU-1643
   Scenario: Forgot Password link and Reset password Link
     When user click to forgot password? link
     Then user must see Reset password button

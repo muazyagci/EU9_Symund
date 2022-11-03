@@ -1,4 +1,4 @@
-package com.Symund.step_definitions;
+package com.Symund.pages;
 
 import com.Symund.utilities.Driver;
 import org.openqa.selenium.WebElement;
