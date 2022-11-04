@@ -12,4 +12,10 @@ public class DashboardPage {
 
     @FindBy(xpath = "//ul[@id='appmenu']//a[@aria-label='Dashboard']")
     public WebElement dashboardBtn;
+
+    @FindBy (xpath = "//div[@id='expand']")
+    public WebElement profilePictureBtn;
+
+    @FindBy (linkText = "Log out")
+    public WebElement logOutBtn;
 }

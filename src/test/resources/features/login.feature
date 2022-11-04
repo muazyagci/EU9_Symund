@@ -1,7 +1,7 @@
 @SYMU-1645
-Feature: US-001 Login Functionality [AutomationS3-MMY]
+Feature: US-001 Login Functionality AutomationS3-MMY
 
-  @SYMU-1640
+
   Background:
     Given user is on login page
 
