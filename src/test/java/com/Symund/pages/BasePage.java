@@ -24,4 +24,5 @@ public abstract class BasePage {
         WebElement moduleIcon=Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//li[@data-id='"+moduleName+"']"));
         moduleIcon.click();
     }
+
 }
