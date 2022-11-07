@@ -66,8 +66,6 @@ public class LoginStep_definition {
         Assert.assertEquals("password", loginPage.passwordInputBox.getAttribute("type"));
     }
 
-
-
     @Then("click to the eye button")
     public void click_to_the_eye_button() {
         loginPage.eyeBtn.click();
