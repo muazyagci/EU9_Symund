@@ -128,4 +128,13 @@ Assert.assertTrue(loginPage.backToLoginBtn.isDisplayed());
         Assert.assertTrue(new DashboardPage().dashboardBtn.isDisplayed());
 
     }
+
+    @Then("user clicks to login button and lands on dashboard")
+    public void userClicksToLoginButtonAndLandsOnDashboard() {
+
+        loginPage.loginBtn.click();
+        Assert.assertEquals(Driver.getDriver().getTitle(),"Dashboard - Symund - QA");
+
+
+    }
 }
