@@ -9,7 +9,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class LoginStep_definition {
-    LoginPage loginPage=new LoginPage();
+    LoginPage loginPage = new LoginPage();
+
     @When("user is on login page")
     public void user_is_on_login_page() {
 
@@ -17,75 +18,69 @@ public class LoginStep_definition {
 
 
     }
+
     @When("user clicks to email input box and enter email {string}")
     public void user_clicks_to_email_input_box_and_enter_email(String ValidEmail) {
-
-    loginPage.emailInputBox.sendKeys(ValidEmail);
-
+        loginPage.emailInputBox.sendKeys(ValidEmail);
     }
+
     @When("user clicks to password input box and enter password {string}")
     public void user_clicks_to_password_input_box_and_enter_password(String password) {
 
         loginPage.passwordInputBox.sendKeys(password);
 
     }
+
     @Then("Click Login button or hit enter key")
     public void click_login_button_or_hit_enter_key() {
-       loginPage.loginBtn.click();
-       Assert.assertTrue(loginPage.wrongPasswordMSG.isDisplayed());
-
-
+        loginPage.loginBtn.click();
+        Assert.assertTrue(loginPage.wrongPasswordMSG.isDisplayed());
     }
+
     @When("Invalid username should be entered {string}")
     public void invalid_username_should_be_entered(String username) {
-       loginPage.emailInputBox.sendKeys(username);
+        loginPage.emailInputBox.sendKeys(username);
     }
+
     @When("Invalid password should be entered {string}")
     public void invalid_password_should_be_entered(String password) {
-         loginPage.passwordInputBox.sendKeys(password);
-         
+        loginPage.passwordInputBox.sendKeys(password);
     }
 
-
-         
 
     @When("Click Login button or hit enter key again without passing any username or password")
     public void click_login_button_or_hit_enter_key_again_without_passing_any_username_or_password() {
-         loginPage.loginBtn.click();
-
-
+        loginPage.loginBtn.click();
         String validationMessage = loginPage.passwordInputBox.getAttribute("validationMessage");
-        Assert.assertEquals(validationMessage,"Please fill in this field.");
-
-
+        Assert.assertEquals(validationMessage, "Please fill in this field.");
     }
+
     @When("user enters email {string} and password {string}")
     public void user_enters_email_and_password(String email, String password) {
         loginPage.emailInputBox.sendKeys(email);
         loginPage.passwordInputBox.sendKeys(password);
-
-       
     }
+
     @Then("password must be seen as dots")
     public void password_must_be_seen_as_dots() {
-       Assert.assertEquals("password",loginPage.passwordInputBox.getAttribute("type"));
+        Assert.assertEquals("password", loginPage.passwordInputBox.getAttribute("type"));
     }
 
 
     @Then("click to the eye button")
     public void click_to_the_eye_button() {
-       loginPage.eyeBtn.click();
+        loginPage.eyeBtn.click();
     }
-    
+
 
     @When("user click to forgot password? link")
     public void user_click_to_forgot_password_link() {
 
-loginPage.forgotPasswordLink.click();
+        loginPage.forgotPasswordLink.click();
 
-Assert.assertTrue(loginPage.backToLoginBtn.isDisplayed());
+        Assert.assertTrue(loginPage.backToLoginBtn.isDisplayed());
 
-       
+
     }
 
 
@@ -94,10 +89,8 @@ Assert.assertTrue(loginPage.backToLoginBtn.isDisplayed());
         Assert.assertTrue(loginPage.emailPlaceHolder.isDisplayed());
 
 
-
-
-
     }
+
     @Then("user must see valid place holders on Password")
     public void user_must_see_valid_place_holders_on_password() {
         Assert.assertTrue(loginPage.passwordPlaceHolder.isDisplayed());
@@ -133,7 +126,7 @@ Assert.assertTrue(loginPage.backToLoginBtn.isDisplayed());
     public void userClicksToLoginButtonAndLandsOnDashboard() {
 
         loginPage.loginBtn.click();
-        Assert.assertEquals(Driver.getDriver().getTitle(),"Dashboard - Symund - QA");
+        Assert.assertEquals(Driver.getDriver().getTitle(), "Dashboard - Symund - QA");
 
 
     }

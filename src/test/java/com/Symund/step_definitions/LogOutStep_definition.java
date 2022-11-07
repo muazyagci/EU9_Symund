@@ -1,5 +1,6 @@
 package com.Symund.step_definitions;
 
+import com.Symund.pages.BasePage;
 import com.Symund.pages.DashboardPage;
 import com.Symund.pages.LoginPage;
 import com.Symund.utilities.ConfigurationReader;
@@ -12,7 +13,7 @@ import org.junit.Assert;
 
 public class LogOutStep_definition {
 LoginPage loginPage=new LoginPage();
-DashboardPage dashboardPage=new DashboardPage();
+BasePage dashboardPage=new DashboardPage();
     @Given("user is on loginpage")
     public void user_is_on_loginpage() {
 
