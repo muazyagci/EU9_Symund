@@ -1,3 +1,4 @@
+@SYMU-1753
 Feature:
 
   Background: user is on dashboard page with valid credentials
@@ -7,5 +8,11 @@ Feature:
     Then user navigates to "tasks" module
 
 
-
-
+  Scenario Outline:
+    When user clicks to add list button
+    And user enters list name "<listName>"
+    And user clicks to save button
+    And verify that recently created list exists "<listName>"
+    Examples:
+      | listName |
+      | School   |

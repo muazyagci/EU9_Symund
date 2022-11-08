@@ -38,7 +38,7 @@ if (scenario.isFailed()) {
     scenario.attach(screenshot, "image/png", scenario.getName());
 }
 
-        Driver.closeDriver();
+        //Driver.closeDriver();
 
        System.out.println("Driver closed");
     }
