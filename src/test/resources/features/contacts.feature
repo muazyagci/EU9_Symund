@@ -8,7 +8,8 @@ Feature: Contacts Module Functionality
     Given user is on login page
 
   @smoke
-  Scenario:
+  Scenario:User can create a new contact
     And user enters email "Employee31" and password "Employee123"
     Then user clicks to login button and lands on dashboard
     Then user navigates to "contacts" module
+    And user can create a new contact Name "Jack" Surname "London"
