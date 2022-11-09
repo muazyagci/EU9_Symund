@@ -29,9 +29,7 @@ public class ContactsPage extends BasePage{
         Assert.assertEquals(fullName, fullNameIsDisplayed.getText());
         System.out.println(fullNameIsDisplayed.getText());
 
-        //Assert.assertEquals(fullName, companyBtn.getAttribute("type"));
-        //System.out.println("companyBtn.getAttribute(\"type\") = " + companyBtn.getAttribute("type"));
-        //System.out.println("fullNameIsDisplayed.getText().equals(fullName) = " + fullNameIsDisplayed.getText().equals(fullName));
+
 
     }
 
