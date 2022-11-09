@@ -1,5 +1,6 @@
 package com.Symund.step_definitions;
 
+import com.Symund.utilities.BrowserUtils;
 import com.Symund.utilities.Driver;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
@@ -38,6 +39,7 @@ if (scenario.isFailed()) {
     scenario.attach(screenshot, "image/png", scenario.getName());
 }
 
+        BrowserUtils.waitFor(5);
         Driver.closeDriver();
 
        System.out.println("Driver closed");
