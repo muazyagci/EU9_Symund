@@ -7,6 +7,18 @@ Feature:
     Then user clicks to login button and lands on dashboard
     Then user navigates to "tasks" module
 
+"""
+  // merge conflict
+  // merge conflict
+  // merge conflict
+  // merge conflict
+  // merge conflict
+  // merge conflict
+  // merge conflict
+  // merge conflict
+  // merge conflict
+  // merge conflict
+"""
 
   Scenario Outline:
     When user clicks to add list button
