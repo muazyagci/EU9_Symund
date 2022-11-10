@@ -15,8 +15,6 @@ import org.junit.runner.RunWith;
         } ,
         features = "src/test/resources/features",
         glue = "com/Symund/step_definitions",
-        tags = "@Test",
-        dryRun = false
 
 
 )
