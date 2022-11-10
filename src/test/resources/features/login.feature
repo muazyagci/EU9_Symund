@@ -7,7 +7,7 @@ Feature: US-001 Login Functionality AutomationS3-MMY
 
   @SYMU-1606
   Scenario: login with valid credentials
-    When user clicks to email input box and enter email "Employee81"
+    When user clicks to email input box and enter email "Employee21"
     And user clicks to password input box and enter password "Employee123"
     And Click Login button
     Then verify that user is on dashboard
