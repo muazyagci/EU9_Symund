@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
 //                "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         } ,
         features = "src/test/resources/features",
-        glue = "com/Symund/step_definitions"
+        glue = "com/Symund/step_definitions",
+        tags = "@wip"
 
 
 
