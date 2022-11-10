@@ -20,7 +20,7 @@ public abstract class BasePage {
     @FindBy (linkText = "Log out")
     public WebElement logOutBtn;
 
-    public void navigateToModule(String moduleName){
+    public static void navigateToModule(String moduleName){
         WebElement moduleIcon=Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//li[@data-id='"+moduleName+"']"));
         moduleIcon.click();
     }
