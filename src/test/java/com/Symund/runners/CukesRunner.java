@@ -16,7 +16,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/Symund/step_definitions",
         dryRun=false,
-        tags="@Test"
+        stepNotifications = true,
+        tags="@wip_Betul"
 
 
 )

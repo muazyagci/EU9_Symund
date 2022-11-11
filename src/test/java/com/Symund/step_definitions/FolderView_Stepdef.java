@@ -1,16 +1,8 @@
 package com.Symund.step_definitions;
 
 import com.Symund.pages.FolderViewPage;
-import com.Symund.pages.LoginPage;
-import com.Symund.utilities.BrowserUtils;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-
-import java.util.Collections;
-import java.util.List;
 
 public class FolderView_Stepdef {
 
@@ -59,16 +51,16 @@ public class FolderView_Stepdef {
 
     @When("user clicks on Checkbox")
     public void user_clicks_on_checkbox() {
-       folderViewPage.SelectAllIcon.click();
+       folderViewPage.checkSelectAllCheckBox();
     }
     @Then("user should see all checkboxes are selected")
     public void user_should_see_all_checkboxes_are_selected() {
-        folderViewPage.SelectAllIcon.isSelected();
+
     }
 
-    @Then("user should see the total values of all folders or files are displayed correctly")
+    @Then("user should see the total counts of all folders or files are displayed correctly")
     public void user_should_see_the_total_values_of_all_folders_or_files_are_displayed_correctly() {
-        folderViewPage.SelectAllIcon.isDisplayed();
+        folderViewPage.verifyTotalCountsOfFolderFiles();
     }
 
 }
