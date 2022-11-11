@@ -27,10 +27,16 @@ public class FolderViewPage extends BasePage{
     //public WebElement SelectAllIcon;
 
     @FindBy (xpath = "//label[@for='select_all_files']")
-    public WebElement SelectAllIcon;
+    private WebElement selectAllCheckBox;
 
-    @FindBy (xpath = "//span[@class='innernametext']")
+    public void checkSelectAllCheckBox(){
+        selectAllCheckBox.click();
+    }
+
+ @FindBy (xpath = "//span[@class='innernametext']")
     public List<WebElement> allFiles;
+
+
 
  @FindBy(xpath = "//td/a/span/span[@class='innernametext']")
  public List<WebElement> orderByName;
@@ -38,7 +44,43 @@ public class FolderViewPage extends BasePage{
  @FindBy(xpath = "//td[@class ='filesize']")
  public List<WebElement> orderBySize;
 
+   @FindBy(xpath = "//tbody//tr[@data-type='dir']")
+   private List<WebElement> folders;
 
+   @FindBy(xpath = "//tbody//tr[@data-type='file']")
+   private List<WebElement> files;
+
+   public int getCountOfFolders(){
+     return folders.size();
+   }
+
+   public int getCountOFiles(){
+     return files.size();
+   }
+
+   @FindBy(xpath = "//a//span[contains(text(),'folders')]")
+   private WebElement totalCountOfItems;
+
+   public void verifyTotalCountsOfFolderFiles(){
+      int expectedCountOfFolders = getCountOfFolders();
+    System.out.println("expectedCountOfFolders = " + expectedCountOfFolders);
+      int expectedCountOfFiles = getCountOFiles();
+    System.out.println("expectedCountOfFiles = " + expectedCountOfFiles);
+      //3 folders and 1 files
+      //012345678901234567890
+      String str = totalCountOfItems.getText();
+      int actualCountOfFolders = Integer.parseInt(str.substring(0,str.indexOf(" f")));
+    System.out.println("actualCountOfFolders = " + actualCountOfFolders);
+      int actualCountOfFiles = Integer.parseInt( str.substring(str.indexOf("d ")+2, str.lastIndexOf(" f")));
+    System.out.println("actualCountOfFiles = " + actualCountOfFiles);
+
+      Assert.assertEquals(expectedCountOfFolders,actualCountOfFolders);
+      Assert.assertEquals(expectedCountOfFiles,actualCountOfFiles);
+
+
+
+
+   }
 
  public void check_fileNameOrder(){
 
@@ -51,7 +93,7 @@ public class FolderViewPage extends BasePage{
   List<String> expectedSortedNames = BrowserUtils.getElementsText(orderByName);
   Collections.sort(expectedSortedNames);
 
-  Assert.assertFalse(actualAllFilesNames.get(0).equals(expectedSortedNames.get(0)));
+  Assert.assertTrue(actualAllFilesNames.get(0).equals(expectedSortedNames.get(0)));
   System.out.println("Before Clicking Name Icon = " + actualAllFilesNames);
   System.out.println("After clicking Name Icon its ordered in alphabetical order= " + expectedSortedNames);
 
@@ -65,6 +107,7 @@ public class FolderViewPage extends BasePage{
   System.out.println("Once clicked = " + actualAllSize);
 
   List<String> expectedSortedSize = BrowserUtils.getElementsText(orderBySize);
+
   System.out.println("After clicked= " + expectedSortedSize);
 
   Assert.assertFalse(actualAllSize.equals(expectedSortedSize));
