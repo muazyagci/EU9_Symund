@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,20 +23,8 @@ public class FolderView_Stepdef {
     }
     @Then("user should see the folder or files in alpahetic order based on their names")
     public void user_should_see_the_folder_or_files_in_alpahetic_order_based_on_their_names() {
-        List<String> allFilesNames= BrowserUtils.getElementsText(folderViewPage.allFiles);
-        allFilesNames.remove("Notes");
-        allFilesNames.remove("Talk");
 
-        List<String> actualAllFilesNames = allFilesNames;
-        System.out.println("allFilesNamesAfterClick = " + actualAllFilesNames);
-
-        List<String> expectedSortedNames = allFilesNames;
-        Collections.sort(expectedSortedNames);
-
-        System.out.println("allFilesNamesAfterSorted = " + allFilesNames);
-        System.out.println(expectedSortedNames.get(0));
-        System.out.println(actualAllFilesNames.get(0));
-               Assert.assertTrue(expectedSortedNames.get(0).equals(actualAllFilesNames.get(0)));
+       folderViewPage.check_fileNameOrder();
     }
 
     @When("user clicks on Size icon")
@@ -44,7 +33,7 @@ public class FolderView_Stepdef {
     }
     @Then("user should see the folder in order based on their size")
     public void user_should_see_the_folder_in_order_based_on_their_size() {
-        folderViewPage.sizeIcon.isEnabled();
+        folderViewPage.check_SizeNameOrder();
     }
 
 

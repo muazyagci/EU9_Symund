@@ -1,5 +1,6 @@
 package com.Symund.pages;
 
+import com.Symund.utilities.BrowserUtils;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,31 +35,43 @@ public class FolderViewPage extends BasePage{
  @FindBy(xpath = "//td/a/span/span[@class='innernametext']")
  public List<WebElement> orderByName;
 
+ @FindBy(xpath = "//td[@class ='filesize']")
+ public List<WebElement> orderBySize;
+
+
+
  public void check_fileNameOrder(){
 
-  //List all folder first name
-  List<String> firstLetter = new ArrayList<>();
+  List<String> allFilesNames= BrowserUtils.getElementsText(orderByName);
 
-  for (int i = 0; i < orderByName.size(); i++) {
-   if (orderByName.get(i).getText().length() != 0) {
-    firstLetter.add(orderByName.get(i).getText().substring(0, 1));
-   }
-  }
-  System.out.println("firstLetter = " + firstLetter);
-  // System.out.println("firstLetter1 = "+firstLetter.get(0));
-  // String s1 = firstLetter.get(0);
+  List<String> actualAllFilesNames = allFilesNames;
+  NameIcon.click();
+  System.out.println("Once clicked = " + actualAllFilesNames);
 
-  //Ascending order
-  List<String> sortedfirstletter = firstLetter;
-  Collections.sort(sortedfirstletter);
-  //System.out.println("sortedfirstletterAll = " + sortedfirstletter);
+  List<String> expectedSortedNames = BrowserUtils.getElementsText(orderByName);
+  Collections.sort(expectedSortedNames);
 
-  System.out.println("sortedFirstLetter = " + sortedfirstletter.get(0));
-  // String s2 = sortedfirstletter.get(0);
-  Assert.assertEquals("Verify the same letter",firstLetter.get(0),sortedfirstletter.get(0));
-  // Assert.assertEquals("let's verify",s1,s2);
+  Assert.assertFalse(actualAllFilesNames.get(0).equals(expectedSortedNames.get(0)));
+  System.out.println("Before Clicking Name Icon = " + actualAllFilesNames);
+  System.out.println("After clicking Name Icon its ordered in alphabetical order= " + expectedSortedNames);
+
  }
 
+ public void check_SizeNameOrder() {
+  List<String> sizeOfall= BrowserUtils.getElementsText(orderBySize);
+
+  List<String> actualAllSize = sizeOfall;
+  sizeIcon.click();
+  System.out.println("Once clicked = " + actualAllSize);
+
+  List<String> expectedSortedSize = BrowserUtils.getElementsText(orderBySize);
+  System.out.println("After clicked= " + expectedSortedSize);
+
+  Assert.assertFalse(actualAllSize.equals(expectedSortedSize));
+  System.out.println("Before Clicking Size Icon= " + actualAllSize);
+  System.out.println("After clicking Size Icon its ordered by Ascending order = " + expectedSortedSize);
+
+ }
 
 
 }
