@@ -54,7 +54,7 @@ public class Contact_GroupFunctionality_definition {
 
     @Then("user should be able to create a new group {string};")
     public void userShouldBeAbleToCreateANewGroup(String groupName) {
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath("////span[contains(text()," + groupName + ")]")).isDisplayed());
+Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//span[@title='"+groupName+"']")).isDisplayed());
 
     }
 
