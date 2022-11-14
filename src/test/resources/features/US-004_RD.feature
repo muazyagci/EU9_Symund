@@ -7,9 +7,8 @@ Feature: Adding Favorites/Rename/Comment on File Functionality
     Then user navigates to "files" module
 
   Scenario: Adding files to favorites from its own three dots menu
-    When user clicks on the three dots menu on the file named Readme.md
-    And user clicks on the "Add to favorites" button
-    Then user can add the file to favorites
+    When user navigates three dots menu and Add to favorites on the file named Readme.md
+    Then assert user added Read.me file in Favorites
 
 
   Scenario: Renaming files from its own three dots menu
