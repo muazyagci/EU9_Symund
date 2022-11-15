@@ -29,6 +29,15 @@ public class Hooks {
 
 
     @After
+    public void tearDownScenario(){
+        Driver.closeDriver();
+    }
+
+
+
+/*
+
+    @After
     public void tearDownScenario(Scenario scenario)  {
        /* System.out.println("====Closing browser using cucumber @After");
         System.out.println("====Scenario ended/ Take screenshot if failed!");
