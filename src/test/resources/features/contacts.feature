@@ -6,10 +6,21 @@ Feature: Contacts Module Functionality
 
   Background:
     Given user is on login page
-
-  @smoke
-  Scenario:User can create a new contact
     And user enters email "Employee31" and password "Employee123"
     Then user clicks to login button and lands on dashboard
     Then user navigates to "contacts" module
+
+  @ok
+  Scenario:User can create a new contact
     And user can create a new contact Name "Jack" Surname "London"
+
+  @wip_Zalina
+  Scenario: User can see all the contacts as a list inside the
+  middle column and total number of the contacts near the “All Contacts” tab
+    Then user can see the number of all contacts and the list of all contacts
+
+
+
+    Scenario: User can change the profile picture of any contact with a previously
+    uploaded picture by using “Choose from files” option
+      Then user is able to change the profile and upload a picture
