@@ -27,13 +27,22 @@ public class Hooks {
 
     }
 
-/*
+
+    @After
+    public void tearDownScenario(){
+        Driver.closeDriver();
+    }
+
+
+
+
+
     @After
     public void tearDownScenario(Scenario scenario)  {
        /* System.out.println("====Closing browser using cucumber @After");
         System.out.println("====Scenario ended/ Take screenshot if failed!");
-        */
-/*
+
+*/
 if (scenario.isFailed()) {
     byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
     scenario.attach(screenshot, "image/png", scenario.getName());
@@ -45,7 +54,7 @@ if (scenario.isFailed()) {
        System.out.println("Driver closed");
     }
 
-*/
+
 
         @BeforeStep
     public void setupStep(){
