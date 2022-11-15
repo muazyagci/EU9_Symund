@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         glue = "com/Symund/step_definitions",
         dryRun=false,
         stepNotifications = true,
-        tags="@wip_Betul"
+        tags="@wip_Zalina"
 
 
 )
