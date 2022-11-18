@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         dryRun=false,
         stepNotifications = true,
 
-        tags="@SYMU-1794"
+        tags="@Test1"
 
 
 
