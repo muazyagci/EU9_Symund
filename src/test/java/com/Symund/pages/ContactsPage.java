@@ -1,5 +1,6 @@
 package com.Symund.pages;
 
+import com.Symund.utilities.BrowserUtils;
 import com.Symund.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -46,6 +47,46 @@ public class ContactsPage extends BasePage {
        int totalCount = Integer.parseInt(str);
        return totalCount;
     }
+
+    @FindBy(xpath="(//div[@class='app-content-list-item-line-one'])[2]")
+    private WebElement contact;
+
+    public void navigateToContact(){
+
+        contacts.get(1).click();
+    }
+
+    @FindBy(xpath = "(//span[@class='action-button__text'])[6]")
+    private WebElement chooseFromFiles;
+
+
+    public void clickOnChooseFromFiles(){
+
+        ButtonIcon.click();
+        chooseFromFiles.click();
+
+    }
+    @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-picture-force-white']")
+    private WebElement ButtonIcon;
+
+    @FindBy(xpath = "//span[@class='filename-parts__first']")
+    private List<WebElement> fileName;
+
+
+
+
+    @FindBy(xpath = "//button[.='Choose']")
+    private WebElement chooseBtn;
+
+
+    public void chooseAnAvatar(){
+        fileName.get(3).click();
+        chooseBtn.click();
+    }
+
+
+
+
 
 
 

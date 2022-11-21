@@ -33,7 +33,9 @@ public class ContactsStep_definition {
 
     @Then("user is able to change the profile and upload a picture")
     public void user_is_able_to_change_the_profile_and_upload_a_picture() {
-
+        contactsPage.navigateToContact();
+        contactsPage.clickOnChooseFromFiles();
+        contactsPage.chooseAnAvatar();
     }
 
 
