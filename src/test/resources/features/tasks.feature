@@ -1,5 +1,5 @@
 @SYMU-1753
-Feature:
+Feature:US-010 Tasks Module Functionality [Automation-S4]
 
   Background: user is on dashboard page with valid credentials
     Given user is on login page
@@ -7,8 +7,8 @@ Feature:
     Then user clicks to login button and lands on dashboard
     Then user navigates to "tasks" module
 
-
-  Scenario Outline: first tc
+@SYMU-1795
+Scenario Outline: Creating List of Tasks
     When user clicks to add list button
     And user enters list name "<listName>"
     And user clicks to save button
@@ -16,3 +16,12 @@ Feature:
     Examples:
       | listName |
       | School   |
+@wipMuaz
+  Scenario Outline: Creating task
+    When user clicks to list of tasks named "<listName>"
+    And user clicks to Add a task to input box
+    And user gives name to task as "<taskName>"
+    Then verify that "<taskName>" exists
+    Examples:
+      | listName | taskName |
+      | School   | task1    |

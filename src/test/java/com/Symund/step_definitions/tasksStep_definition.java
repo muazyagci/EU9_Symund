@@ -34,4 +34,22 @@ public class tasksStep_definition {
     public void verifyThatRecentlyCreatedListExists(String listName) {
 
     }
+  
+    @When("user clicks to Add a task to input box")
+    public void user_clicks_to_add_a_task_to_input_box() {
+        
+    }
+    
+    @When("user clicks to list of tasks named {string}")
+    public void user_clicks_to_list_of_tasks_named(String string) {
+        
+    }
+    @When("user gives name to task as {string}")
+    public void user_gives_name_to_task_as(String string) {
+        
+    }
+    @Then("verify that {string} exists")
+    public void verify_that_exists(String string) {
+        
+    }
 }

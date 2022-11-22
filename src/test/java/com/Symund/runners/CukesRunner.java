@@ -15,10 +15,10 @@ import org.junit.runner.RunWith;
         } ,
         features = "src/test/resources/features",
         glue = "com/Symund/step_definitions",
-        dryRun=false,
+        dryRun=true,
         stepNotifications = true,
 
-        tags="@smoke"
+        tags="@wipMuaz"
 
 
 
