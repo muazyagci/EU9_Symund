@@ -16,10 +16,10 @@ Scenario Outline: Creating List of Tasks
     Examples:
       | listName |
       | School   |
+
 @wipMuaz
   Scenario Outline: Creating task
     When user clicks to list of tasks named "<listName>"
-    And user clicks to Add a task to input box
     And user gives name to task as "<taskName>"
     Then verify that "<taskName>" exists
     Examples:

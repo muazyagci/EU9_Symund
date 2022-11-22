@@ -28,10 +28,7 @@ public class Hooks {
     }
 
 
-    @After
-    public void tearDownScenario() {
-        Driver.closeDriver();
-    }
+
 
 
     @After
@@ -46,7 +43,7 @@ public class Hooks {
         }
 
         BrowserUtils.waitFor(5);
-        Driver.closeDriver();
+       // Driver.closeDriver();
 
         System.out.println("Driver closed");
     }

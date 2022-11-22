@@ -1,8 +1,6 @@
 package com.Symund.pages;
 
-import com.Symund.utilities.Driver;
-import org.junit.Assert;
-import org.openqa.selenium.By;
+import com.Symund.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,8 +19,11 @@ public class TasksPage extends BasePage {
     @FindBy (xpath = "//div[xpath='1']")
     public WebElement listVerification;
 
-    public void listNames(String listname){
-       WebElement listOfLists= Driver.getDriver().findElement(By.xpath("//ul[@class='app-navigation__list']/div/li/a//span[@title='"+listname+"']"));
-        Assert.assertTrue(listOfLists.isDisplayed());
-    }
+    String listname= ConfigurationReader.getProperty("listName");
+
+    @FindBy(xpath = "//ul[@class='app-navigation__list']/div/li/a//span[@title='School']")
+    public WebElement listOftasks;
+
+    @FindBy(id = "target")
+    public WebElement addATaskInputBox;
 }

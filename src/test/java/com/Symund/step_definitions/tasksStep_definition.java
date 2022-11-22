@@ -6,6 +6,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.*;
+
 public class tasksStep_definition {
     TasksPage tasksPage=new TasksPage();
     @Then("user navigates to {string} module")
@@ -32,17 +34,13 @@ public class tasksStep_definition {
 
     @And("verify that recently created list exists {string}")
     public void verifyThatRecentlyCreatedListExists(String listName) {
+        assertTrue( tasksPage.listOftasks.isDisplayed());
+    }
 
-    }
-  
-    @When("user clicks to Add a task to input box")
-    public void user_clicks_to_add_a_task_to_input_box() {
-        
-    }
     
     @When("user clicks to list of tasks named {string}")
-    public void user_clicks_to_list_of_tasks_named(String string) {
-        
+    public void user_clicks_to_list_of_tasks_named(String taskName) {
+        tasksPage.listOftasks.click();
     }
     @When("user gives name to task as {string}")
     public void user_gives_name_to_task_as(String string) {
