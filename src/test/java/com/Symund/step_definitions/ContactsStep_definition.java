@@ -38,6 +38,12 @@ public class ContactsStep_definition {
         contactsPage.chooseAnAvatar();
     }
 
+    @Then("user is able to delete a contact")
+    public void user_is_able_to_delete_a_contact() {
+        contactsPage.verifyContactIsDeleted();
+    }
+
+
 
 
 

@@ -84,6 +84,28 @@ public class ContactsPage extends BasePage {
         chooseBtn.click();
     }
 
+    @FindBy(xpath="(//div[@class='trigger'])[1]")
+    private WebElement menuButton;
+
+    @FindBy(xpath ="(//span[.='Delete'])[1]")
+    private WebElement deleteButton;
+
+
+
+    public void verifyContactIsDeleted(){
+
+        Assert.assertTrue(contacts.get(3).isDisplayed());
+        contacts.get(3).click();
+       // BrowserUtils.clickWithTimeOut(menuButton,3);
+        menuButton.click();
+        System.out.println("deleteButton.isDisplayed() = " + deleteButton.isDisplayed());
+        BrowserUtils.waitForClickablility(deleteButton,4);
+        deleteButton.click();
+       // Assert.assertFalse(contacts.get(3).isDisplayed());
+
+
+    }
+
 
 
 

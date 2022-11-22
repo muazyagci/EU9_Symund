@@ -20,7 +20,11 @@ Feature: Contacts Module Functionality
     Then user can see the number of all contacts and the list of all contacts
 
 
-  @wip_Zalina
+
     Scenario: User can change the profile picture of any contact with a previously
     uploaded picture by using “Choose from files” option
       Then user is able to change the profile and upload a picture
+
+  @wip_Zalina
+  Scenario: User can delete any selected contact
+    Then user is able to delete a contact
