@@ -52,14 +52,4 @@ public class Hooks {
     }
 
 
-    @BeforeStep
-    public void setupStep() {
-
-    }
-
-    @AfterStep
-    public void afterStep() {
-
-    }
-
 }
