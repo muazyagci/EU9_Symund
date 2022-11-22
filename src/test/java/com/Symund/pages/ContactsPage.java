@@ -3,8 +3,8 @@ package com.Symund.pages;
 import com.Symund.utilities.BrowserUtils;
 import com.Symund.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -48,12 +48,11 @@ public class ContactsPage extends BasePage {
        return totalCount;
     }
 
-    @FindBy(xpath="(//div[@class='app-content-list-item-line-one'])[2]")
-    private WebElement contact;
+
 
     public void navigateToContact(){
 
-        contacts.get(1).click();
+        contacts.get(contacts.size()-1).click();
     }
 
     @FindBy(xpath = "(//span[@class='action-button__text'])[6]")
@@ -84,27 +83,34 @@ public class ContactsPage extends BasePage {
         chooseBtn.click();
     }
 
-    @FindBy(xpath="(//div[@class='trigger'])[1]")
+    @FindBy(xpath="//div[@class='contact-header__actions']")
     private WebElement menuButton;
 
-    @FindBy(xpath ="(//span[.='Delete'])[1]")
+    @FindBy(xpath ="//div[@class='popover__inner']//span[@class='action-button__icon icon-delete']")
     private WebElement deleteButton;
 
 
+    Actions actions = new Actions(Driver.getDriver());
 
     public void verifyContactIsDeleted(){
 
-        Assert.assertTrue(contacts.get(3).isDisplayed());
-        contacts.get(3).click();
+       Assert.assertTrue(contacts.get(contacts.size()-1).isDisplayed());
+        contacts.get(contacts.size()-1).click();
+
+       // BrowserUtils.sleep(3);
+       // actions.moveToElement(menuButton).perform();
        // BrowserUtils.clickWithTimeOut(menuButton,3);
         menuButton.click();
-        System.out.println("deleteButton.isDisplayed() = " + deleteButton.isDisplayed());
-        BrowserUtils.waitForClickablility(deleteButton,4);
-        deleteButton.click();
-       // Assert.assertFalse(contacts.get(3).isDisplayed());
+
+
+
+       //BrowserUtils.sleep(5);
+       deleteButton.click();
 
 
     }
+
+
 
 
 

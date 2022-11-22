@@ -1,3 +1,4 @@
+@wip_Zalina
 Feature: Contacts Module Functionality
   User Story:
   As a user, I should be able to create a new contact
@@ -25,6 +26,6 @@ Feature: Contacts Module Functionality
     uploaded picture by using “Choose from files” option
       Then user is able to change the profile and upload a picture
 
-  @wip_Zalina
+
   Scenario: User can delete any selected contact
     Then user is able to delete a contact
