@@ -1,6 +1,5 @@
 package com.Symund.pages;
 
-import com.Symund.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,11 +18,15 @@ public class TasksPage extends BasePage {
     @FindBy (xpath = "//div[xpath='1']")
     public WebElement listVerification;
 
-    String listname= ConfigurationReader.getProperty("listName");
+
 
     @FindBy(xpath = "//ul[@class='app-navigation__list']/div/li/a//span[@title='School']")
     public WebElement listOftasks;
 
     @FindBy(id = "target")
     public WebElement addATaskInputBox;
+
+    @FindBy(xpath = "//span[normalize-space()='task1']")
+    public WebElement CreatedTask;
+
 }

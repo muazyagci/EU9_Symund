@@ -5,8 +5,9 @@ import com.Symund.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class tasksStep_definition {
     TasksPage tasksPage=new TasksPage();
@@ -43,11 +44,11 @@ public class tasksStep_definition {
         tasksPage.listOftasks.click();
     }
     @When("user gives name to task as {string}")
-    public void user_gives_name_to_task_as(String string) {
-        
+    public void user_gives_name_to_task_as(String taskName) {
+        tasksPage.addATaskInputBox.sendKeys(taskName+ Keys.ENTER);
     }
     @Then("verify that {string} exists")
-    public void verify_that_exists(String string) {
-        
+    public void verify_that_exists(String taskName) {
+        assertTrue(tasksPage.CreatedTask.isDisplayed());
     }
 }
