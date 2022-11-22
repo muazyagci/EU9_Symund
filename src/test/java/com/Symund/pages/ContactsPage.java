@@ -90,7 +90,7 @@ public class ContactsPage extends BasePage {
     private WebElement deleteButton;
 
 
-    Actions actions = new Actions(Driver.getDriver());
+
 
     public void verifyContactIsDeleted(){
 
