@@ -11,30 +11,27 @@ Hook class will allow us to pass pre and post conditions for each scenario and e
  */
 public class Hooks {
 
-    @Before (order = 1)//Before method coming from cucumber-java.Not from junit
-    public void setupScenario(){
+    @Before(order = 1)//Before method coming from cucumber-java.Not from junit
+    public void setupScenario() {
 
     }
 
-    @Before(value = "@login",order = 2)//Before method coming from cucumber-java.Not from junit
-    public void setupScenarioForLogins(){
+    @Before(value = "@login", order = 2)//Before method coming from cucumber-java.Not from junit
+    public void setupScenarioForLogins() {
         System.out.println("===This will only apply to Scenarios with @login ");
     }
 
-    @Before(value = "@db",order = 0)//Before method coming from cucumber-java.Not from junit
-    public void setupScenarioForDataBase(){
+    @Before(value = "@db", order = 0)//Before method coming from cucumber-java.Not from junit
+    public void setupScenarioForDataBase() {
         System.out.println("===This will only apply to Scenarios with @db ");
 
     }
 
 
     @After
-    public void tearDownScenario(){
+    public void tearDownScenario() {
         Driver.closeDriver();
     }
-
-
-
 
 
     @After
@@ -51,4 +48,8 @@ public class Hooks {
         BrowserUtils.waitFor(5);
         Driver.closeDriver();
 
-    }}
+        System.out.println("Driver closed");
+    }
+
+
+}

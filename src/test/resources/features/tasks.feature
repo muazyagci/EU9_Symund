@@ -8,7 +8,7 @@ Feature:
     Then user navigates to "tasks" module
 
 
-  Scenario Outline:
+  Scenario Outline: first tc
     When user clicks to add list button
     And user enters list name "<listName>"
     And user clicks to save button
