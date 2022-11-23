@@ -91,6 +91,7 @@ public class FolderViewPage extends BasePage{
      System.out.println("actualAllFilesNames = " + actualAllFilesNames);
 
      List<String> expectedSortedNames = BrowserUtils.getElementsText(orderByName);
+     System.out.println("expectedSortedNames = " + expectedSortedNames);
      Collections.sort(expectedSortedNames);
 
      Assert.assertTrue(expectedSortedNames.equals(actualAllFilesNames));
