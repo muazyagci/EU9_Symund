@@ -17,7 +17,7 @@ Scenario Outline: Creating List of Tasks
       | listName |
       | School   |
 
-@wipMuaz
+
   Scenario Outline: Creating task
     When user clicks to list of tasks named "<listName>"
     And user gives name to task as "<taskName>"
@@ -25,3 +25,14 @@ Scenario Outline: Creating List of Tasks
     Examples:
       | listName | taskName |
       | School   | task1    |
+
+
+  @wipMuaz
+  Scenario Outline: Completing Tasks
+    When user clicks to list of tasks named "<listName>"
+    And user clicks to checkbox btn left next to the "<taskName>"
+    Then user goes to Completed list and verifies that the task "<taskName>" marked as completed is there
+    Examples:
+      | listName | taskName |
+      | School   | task1    |
+

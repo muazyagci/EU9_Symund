@@ -29,4 +29,9 @@ public class TasksPage extends BasePage {
     @FindBy(xpath = "//span[normalize-space()='task1']")
     public WebElement CreatedTask;
 
+    @FindBy(xpath = "//label[@for='toggleCompleted_13fdc7c6-4276-4458-bce3-836aff3d10a6']")
+    public WebElement completedCheckBoxBtn;
+
+    @FindBy(xpath = "(//a[@class='app-navigation-entry-link'])[6]")
+    public WebElement completedModule;
 }

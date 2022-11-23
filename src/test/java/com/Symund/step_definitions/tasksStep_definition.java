@@ -51,4 +51,14 @@ public class tasksStep_definition {
     public void verify_that_exists(String taskName) {
         assertTrue(tasksPage.CreatedTask.isDisplayed());
     }
+    @When("user clicks to checkbox btn left next to the {string}")
+    public void user_clicks_to_checkbox_btn_left_next_to_the(String string) {
+        tasksPage.completedCheckBoxBtn.click();
+    }
+    @Then("user goes to Completed list and verifies that the task {string} marked as completed is there")
+    public void user_goes_to_completed_list_and_verifies_that_the_task_marked_as_completed_is_there(String string)  {
+        tasksPage.completedModule.click();
+        assertTrue(tasksPage.CreatedTask.isDisplayed());
+
+    }
 }
