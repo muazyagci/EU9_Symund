@@ -28,10 +28,7 @@ public class Hooks {
     }
 
 
-    @After
-    public void tearDownScenario() {
-        Driver.closeDriver();
-    }
+
 
 
     @After
