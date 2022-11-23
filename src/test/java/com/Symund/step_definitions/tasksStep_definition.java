@@ -2,6 +2,7 @@ package com.Symund.step_definitions;
 
 import com.Symund.pages.TasksPage;
 import com.Symund.utilities.BrowserUtils;
+import com.Symund.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -37,8 +38,6 @@ public class tasksStep_definition {
     public void verifyThatRecentlyCreatedListExists(String listName) {
         assertTrue( tasksPage.listOftasks.isDisplayed());
     }
-
-    
     @When("user clicks to list of tasks named {string}")
     public void user_clicks_to_list_of_tasks_named(String taskName) {
         tasksPage.listOftasks.click();
@@ -51,14 +50,24 @@ public class tasksStep_definition {
     public void verify_that_exists(String taskName) {
         assertTrue(tasksPage.CreatedTask.isDisplayed());
     }
-    @When("user clicks to checkbox btn left next to the {string}")
-    public void user_clicks_to_checkbox_btn_left_next_to_the(String string) {
-        tasksPage.completedCheckBoxBtn.click();
-    }
     @Then("user goes to Completed list and verifies that the task {string} marked as completed is there")
     public void user_goes_to_completed_list_and_verifies_that_the_task_marked_as_completed_is_there(String string)  {
         tasksPage.completedModule.click();
         assertTrue(tasksPage.CreatedTask.isDisplayed());
+
+    }
+
+    @And("user clicks to checkbox btn left next to the {string} if it doesn't exists create one")
+    public void userClicksToCheckboxBtnLeftNextToTheIfItDoesnTExistsCreateOne(String taskName) {
+
+
+        if (tasksPage.CreatedTask.isDisplayed()){
+            tasksPage.completedCheckBoxBtn.click();
+        }else {
+            Driver.getDriver().navigate().refresh();
+            tasksPage.addATaskInputBox.sendKeys(taskName+ Keys.ENTER);
+        }
+
 
     }
 }
