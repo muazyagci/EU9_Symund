@@ -3,6 +3,7 @@ package com.Symund.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -34,7 +35,7 @@ public class Driver {
             We read our browser type from configuration.properties.
             This way, we can control which browser is opened from outside our code, form configuration.properties
              */
-            String browserType = ConfigurationReader.getProperty("browser");
+            String browserType = System.getProperty("browser") != null ? System.getProperty("browser") : ConfigurationReader.getProperty("browser");
 
             /*
             Depending on the browserType that will be return from configuration.properties file
@@ -47,6 +48,10 @@ public class Driver {
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    break;
+                case "chrome-headless":
+                    WebDriverManager.chromedriver().setup();
+                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();

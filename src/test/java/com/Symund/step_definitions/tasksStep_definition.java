@@ -1,6 +1,7 @@
 package com.Symund.step_definitions;
 
 import com.Symund.pages.TasksPage;
+import com.Symund.utilities.BrowserUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,6 +10,7 @@ public class tasksStep_definition {
     TasksPage tasksPage=new TasksPage();
     @Then("user navigates to {string} module")
     public void userNavigatesToModule(String moduleName) {
+        BrowserUtils.sleep(5);
         tasksPage.navigateToModule(moduleName);
 
     }
