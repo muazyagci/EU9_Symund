@@ -62,7 +62,7 @@ public class FolderViewPage extends BasePage{
 
     @FindBy(xpath = "//a//span[contains(text(),'folders')]")
     private WebElement totalCountOfItems;
-   ////td/span[@class='modified live-relative-timestamp'] MOdified
+   ////td/span[@class='modified live-relative-timestamp'] Modified
 
    @FindBy(xpath = "//td//span[contains(text(),'ago')]")
    public List<WebElement> orderbyModified;
@@ -113,9 +113,11 @@ public class FolderViewPage extends BasePage{
      List<String> allModified = BrowserUtils.getElementsText(orderbyModified);
 
      List<String> actualAllModified = allModified;
+     System.out.println("actualAllModified = " + actualAllModified);
 
      List<String> expectedAfterModified = BrowserUtils.getElementsText(orderbyModified);
      Collections.sort(expectedAfterModified);
+     System.out.println("expectedAfterModified = " + expectedAfterModified);
 
      Assert.assertTrue(actualAllModified.equals(expectedAfterModified));
      System.out.println("Actual= " + actualAllModified);
