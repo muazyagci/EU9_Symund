@@ -6,7 +6,7 @@ Feature: Talk Module Functionality
     And user enters email "Employee131" and password "Employee123"
     And user clicks to login button and lands on dashboard
     Then user navigates to "spreed" module
-
+  #smoke
   @SYMU-1772
   Scenario Outline: User can create a new group conversation by adding other users
     When clicks to + button
