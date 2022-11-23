@@ -19,7 +19,7 @@ Feature: Calendar Module Functionality
     And user clicks on week button
     Then user displays weekly calendar view
 
-  @SYMU-1791
+  @SYMU-1791 @Smoke
   Scenario: User can display monthly calendar view
     When user clicks on menutoggle next to today button
     And user clicks on month button
