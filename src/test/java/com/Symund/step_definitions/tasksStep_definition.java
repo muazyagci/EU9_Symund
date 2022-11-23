@@ -2,7 +2,6 @@ package com.Symund.step_definitions;
 
 import com.Symund.pages.TasksPage;
 import com.Symund.utilities.BrowserUtils;
-import com.Symund.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -62,10 +61,12 @@ public class tasksStep_definition {
 
 
         if (tasksPage.CreatedTask.isDisplayed()){
+
+
             tasksPage.completedCheckBoxBtn.click();
         }else {
-            Driver.getDriver().navigate().refresh();
-            tasksPage.addATaskInputBox.sendKeys(taskName+ Keys.ENTER);
+            tasksPage.addATaskInputBox.sendKeys(taskName+Keys.ENTER);
+            tasksPage.completedCheckBoxBtn.click();
         }
 
 

@@ -23,6 +23,9 @@ Scenario Outline: Creating List of Tasks
     When user clicks to list of tasks named "<listName>"
     And user gives name to task as "<taskName>"
     Then verify that "<taskName>" exists
+    When user clicks to list of tasks named "<listName>"
+    And user clicks to checkbox btn left next to the "<taskName>" if it doesn't exists create one
+    Then user goes to Completed list and verifies that the task "<taskName>" marked as completed is there
     Examples:
       | listName | taskName |
       | School   | task1    |
