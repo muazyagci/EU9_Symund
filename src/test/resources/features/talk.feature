@@ -15,6 +15,7 @@ Feature: Talk Module Functionality
     And choose one participant and clicks create conversation button
     Then user can see created conversation "<Message>"
 
+
     Examples:
       | Conversation name | Message                      |
       | Conversation      | You created the conversation |
