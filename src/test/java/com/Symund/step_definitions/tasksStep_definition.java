@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 
 import static org.junit.Assert.assertTrue;
 
@@ -60,15 +61,35 @@ public class tasksStep_definition {
     public void userClicksToCheckboxBtnLeftNextToTheIfItDoesnTExistsCreateOne(String taskName) {
 
 
-        if (tasksPage.CreatedTask.isDisplayed()){
+       try {
+           assertTrue(tasksPage.CreatedTask.isDisplayed());
 
+       }catch (NoSuchElementException e){
+           tasksPage.addATaskInputBox.sendKeys(taskName+Keys.ENTER);
 
-            tasksPage.completedCheckBoxBtn.click();
-        }else {
-            tasksPage.addATaskInputBox.sendKeys(taskName+Keys.ENTER);
-            tasksPage.completedCheckBoxBtn.click();
-        }
-
-
+       }finally {
+           tasksPage.completedCheckBoxBtn.click();
+       }
     }
+
+    @When("user creates a task {string} if it is not created")
+    public void user_creates_a_task_if_it_is_not_created(String taskName) {
+        try {
+            assertTrue(tasksPage.CreatedTask.isDisplayed());
+
+        }catch (NoSuchElementException e){
+            tasksPage.addATaskInputBox.sendKeys(taskName+Keys.ENTER);
+
+        }
+    }
+    @When("user clicks to star icon at the right side of task line")
+    public void user_clicks_to_star_icon_at_the_right_side_of_task_line() {
+        tasksPage.starIcon.click();
+    }
+    @Then("verify that related task is on the important tasks list")
+    public void verify_that_related_task_is_on_the_important_tasks_list() {
+        tasksPage.importantList.click();
+        assertTrue(tasksPage.CreatedTask.isDisplayed());
+    }
+   
 }

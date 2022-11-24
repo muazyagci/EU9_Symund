@@ -34,4 +34,10 @@ public class TasksPage extends BasePage {
 
     @FindBy(xpath = "(//a[@class='app-navigation-entry-link'])[6]")
     public WebElement completedModule;
+
+    @FindBy(xpath = "//button[@class='inline task-star reactive no-nav']")
+    public WebElement starIcon;
+
+    @FindBy(xpath = "//ul[@class='app-navigation__list']/li/a//span[@title='Important']")
+    public WebElement importantList;
 }

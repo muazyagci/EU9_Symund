@@ -23,15 +23,12 @@ Scenario Outline: Creating List of Tasks
     When user clicks to list of tasks named "<listName>"
     And user gives name to task as "<taskName>"
     Then verify that "<taskName>" exists
-    When user clicks to list of tasks named "<listName>"
-    And user clicks to checkbox btn left next to the "<taskName>" if it doesn't exists create one
-    Then user goes to Completed list and verifies that the task "<taskName>" marked as completed is there
     Examples:
       | listName | taskName |
       | School   | task1    |
 
 
-  @wipMuaz
+
   Scenario Outline: Completing Tasks
     When user clicks to list of tasks named "<listName>"
     And user clicks to checkbox btn left next to the "<taskName>" if it doesn't exists create one
@@ -39,4 +36,14 @@ Scenario Outline: Creating List of Tasks
     Examples:
       | listName | taskName |
       | School   | task1    |
+
+  @wipMuaz
+    Scenario Outline: Making Important Tasks
+      When user clicks to list of tasks named "<listName>"
+      And user creates a task "<taskName>" if it is not created
+      And user clicks to star icon at the right side of task line
+      Then verify that related task is on the important tasks list
+      Examples:
+        | listName | taskName |
+        | School   | task1    |
 
