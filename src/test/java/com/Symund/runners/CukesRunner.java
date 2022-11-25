@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         dryRun=false,
         stepNotifications = true,
 
-        tags="@wipMuaz"
+        tags="@SYMU-1816"
 
 
 
