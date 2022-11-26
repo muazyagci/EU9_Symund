@@ -35,9 +35,19 @@ public class TasksPage extends BasePage {
     @FindBy(xpath = "(//a[@class='app-navigation-entry-link'])[6]")
     public WebElement completedModule;
 
-    @FindBy(xpath = "//button[@class='inline task-star reactive no-nav']")
-    public WebElement starIcon;
 
     @FindBy(xpath = "//ul[@class='app-navigation__list']/li/a//span[@title='Important']")
     public WebElement importantList;
+
+    @FindBy(xpath = "//li[@id='collection_current']//div[@class='app-navigation-entry__counter']")
+    public WebElement numberOfUncompletedTasks;
+
+    @FindBy(xpath = "//button[@class='inline task-star reactive no-nav']")
+    public WebElement starIcon;
+
+    @FindBy(xpath = "//span[@class='icon icon-sprt-bw sprt-task-star']")
+    public WebElement UnClickedStarIcon;
+
+    @FindBy(xpath = "//span[@class='icon sprt-color sprt-task-star-high']")
+    public WebElement clickedStarIcon;
 }

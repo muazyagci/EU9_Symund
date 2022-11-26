@@ -2,16 +2,21 @@ package com.Symund.step_definitions;
 
 import com.Symund.pages.TasksPage;
 import com.Symund.utilities.BrowserUtils;
+import com.Symund.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertTrue;
 
 public class tasksStep_definition {
     TasksPage tasksPage=new TasksPage();
+    WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
     @Then("user navigates to {string} module")
     public void userNavigatesToModule(String moduleName) {
         BrowserUtils.sleep(5);
@@ -84,12 +89,25 @@ public class tasksStep_definition {
     }
     @When("user clicks to star icon at the right side of task line")
     public void user_clicks_to_star_icon_at_the_right_side_of_task_line() {
-        tasksPage.starIcon.click();
+        wait.until(ExpectedConditions.elementToBeClickable(tasksPage.starIcon));
+       try {
+           assertTrue(tasksPage.clickedStarIcon.isDisplayed());
+       }catch (NoSuchElementException e){
+           assertTrue(tasksPage.UnClickedStarIcon.isDisplayed());
+           tasksPage.starIcon.click();
+       }
+
     }
     @Then("verify that related task is on the important tasks list")
     public void verify_that_related_task_is_on_the_important_tasks_list() {
+
         tasksPage.importantList.click();
         assertTrue(tasksPage.CreatedTask.isDisplayed());
     }
-   
+
+    @When("Verify that user can see the number of uncompleted tasks")
+    public void verifyThatUserCanSeeTheNumberOfUncompletedTasks() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@id='collection_current']//div[@class='app-navigation-entry__counter']")));
+        assertTrue(tasksPage.numberOfUncompletedTasks.isDisplayed());
+    }
 }
