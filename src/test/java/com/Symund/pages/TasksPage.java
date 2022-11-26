@@ -29,9 +29,25 @@ public class TasksPage extends BasePage {
     @FindBy(xpath = "//span[normalize-space()='task1']")
     public WebElement CreatedTask;
 
-    @FindBy(xpath = "//label[@for='toggleCompleted_5afc8beb-462c-442c-8406-d0ba83fc91c5']")
+    @FindBy(xpath = "//label[@class='reactive no-nav']")
     public WebElement completedCheckBoxBtn;
 
     @FindBy(xpath = "(//a[@class='app-navigation-entry-link'])[6]")
     public WebElement completedModule;
+
+
+    @FindBy(xpath = "//ul[@class='app-navigation__list']/li/a//span[@title='Important']")
+    public WebElement importantList;
+
+    @FindBy(xpath = "//li[@id='collection_current']//div[@class='app-navigation-entry__counter']")
+    public WebElement numberOfUncompletedTasks;
+
+    @FindBy(xpath = "//button[@class='inline task-star reactive no-nav']")
+    public WebElement starIcon;
+
+    @FindBy(xpath = "//span[@class='icon icon-sprt-bw sprt-task-star']")
+    public WebElement UnClickedStarIcon;
+
+    @FindBy(xpath = "//span[@class='icon sprt-color sprt-task-star-high']")
+    public WebElement clickedStarIcon;
 }

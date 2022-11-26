@@ -18,7 +18,7 @@ Scenario Outline: Creating List of Tasks
       | listName |
       | School   |
 
-
+@SYMU-1823
   Scenario Outline: Creating task
     When user clicks to list of tasks named "<listName>"
     And user gives name to task as "<taskName>"
@@ -28,7 +28,7 @@ Scenario Outline: Creating List of Tasks
       | School   | task1    |
 
 
-  @wipMuaz
+@SYMU-1824
   Scenario Outline: Completing Tasks
     When user clicks to list of tasks named "<listName>"
     And user clicks to checkbox btn left next to the "<taskName>" if it doesn't exists create one
@@ -37,3 +37,16 @@ Scenario Outline: Creating List of Tasks
       | listName | taskName |
       | School   | task1    |
 
+  @SYMU-1825
+    Scenario Outline: Making Important Tasks
+      When user clicks to list of tasks named "<listName>"
+      And user creates a task "<taskName>" if it is not created
+      And user clicks to star icon at the right side of task line
+      Then verify that related task is on the important tasks list
+      Examples:
+        | listName | taskName |
+        | School   | task1    |
+
+@SYMU-1826
+Scenario: Uncompleted tasks
+  When Verify that user can see the number of uncompleted tasks
