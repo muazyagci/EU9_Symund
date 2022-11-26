@@ -28,6 +28,7 @@ Feature: Folder View Functionality
     Then user should see the folders in a view with large icons
 
 
+    #smoke
   @SYMU-1811
     Scenario: AC_5: User can select all the files at once and see the total values of all files in the first line
     when clicked on the “select all” checkbox
